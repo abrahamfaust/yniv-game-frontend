@@ -1,7 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import backgroundImage from '../../public/backgroundLobby.png'; // Import the image file
+
 
 import cards from "../assets/cards";
+import { useNavigate } from "react-router-dom";
 
 export default function Lobby() {
   var screenHeight = window.innerHeight;
@@ -20,11 +23,15 @@ export default function Lobby() {
     if (cards[number].suit == 'diamonds' || cards[number].suit == 'hearts') setColor('#D40000')
     else setColor('#000')
   };
+  const navigate = useNavigate();
+
 
   return (
     <Box
       sx={{
-        bgcolor: "red",
+        backgroundImage: `url(${backgroundImage})`, // Use inline style to set background image
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -35,9 +42,23 @@ export default function Lobby() {
       <Button
         variant="contained"
         sx={{ marginBottom: 10 }}
+        onClick={() => navigate('/single-game')}
+        >
+        SignleGame
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ marginBottom: 10 }}
+        onClick={() => navigate('/multiple-game/1')}
+        >
+        MultiPlyer
+      </Button>
+      <Button
+        variant="contained"
         onClick={handleClick}
+        sx={{ marginBottom: 10 }}
       >
-        bress
+        press
       </Button>
       <Box sx={{ bgcolor: "white", borderRadius: 2, position: "relative" }}>
         <Typography sx={{ fontSize: 40, position: "absolute", left: 8, color:color}}>

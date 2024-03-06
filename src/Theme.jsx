@@ -4,13 +4,16 @@ import { blue, purple } from '@mui/material/colors';
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[700],
+      main: '#ce854e',
     },
     secondary: {
-      main: blue[700],
+      main: '#54b4b3',
     },
     info:{
         main: '#fff'
+    },
+    text:{
+      main:'#fff'
     }
   },
 });
